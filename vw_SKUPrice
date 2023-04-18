@@ -1,3 +1,5 @@
-CREATE VIEW vw_SKUPrice AS
-SELECT *, udf_GetSKUPrice(ID) AS Price
-FROM SKU;
+CREATE VIEW dbo.vw_SKUPrice
+AS
+SELECT *,
+       dbo.udf_GetSKUPrice(ID) AS SKUPrice
+FROM dbo.SKU;
