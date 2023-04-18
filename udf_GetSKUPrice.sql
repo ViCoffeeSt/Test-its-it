@@ -1,0 +1,12 @@
+CREATE FUNCTION udf_GetSKUPrice (ID_SKU INTEGER)
+RETURNS DECIMAL(18,2)
+AS
+BEGIN
+  DECLARE Price DECIMAL(18,2);
+
+  SELECT Price = SUM(Value) / SUM(Quantity)
+  FROM Basket
+  WHERE ID_SKU = ID_SKU;
+
+  RETURN Price;
+END;
